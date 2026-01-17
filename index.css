@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Portal Pendidikan Bunayya Islamic School - Design System */
+
+@layer base {
+  :root {
+    --background: 140 20% 98%;
+    --foreground: 160 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 160 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 30% 15%;
+
+    --primary: 158 64% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 45 93% 47%;
+    --secondary-foreground: 160 30% 15%;
+
+    --muted: 140 20% 94%;
+    --muted-foreground: 160 10% 45%;
+
+    --accent: 200 80% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 140 15% 88%;
+    --input: 140 15% 88%;
+    --ring: 158 64% 35%;
+
+    --radius: 0.75rem;
+
+    /* Portal specific colors */
+    --emerald: 158 64% 35%;
+    --emerald-light: 158 64% 95%;
+    --gold: 45 93% 47%;
+    --gold-light: 45 93% 94%;
+    --sky: 200 80% 50%;
+    --sky-light: 200 80% 94%;
+    --coral: 12 76% 61%;
+    --coral-light: 12 76% 94%;
+    --purple: 262 83% 58%;
+    --purple-light: 262 83% 94%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(158 64% 35%), hsl(175 60% 40%));
+    --gradient-secondary: linear-gradient(135deg, hsl(45 93% 47%), hsl(38 93% 50%));
+    --gradient-accent: linear-gradient(135deg, hsl(200 80% 50%), hsl(210 80% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(158 64% 35%), hsl(175 60% 40%), hsl(200 80% 50%));
+    --gradient-warm: linear-gradient(135deg, hsl(45 93% 47%), hsl(38 93% 55%));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(160 30% 15% / 0.1);
+    --shadow-card: 0 8px 30px -12px hsl(160 30% 15% / 0.15);
+    --shadow-elevated: 0 20px 40px -12px hsl(160 30% 15% / 0.2);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 160 30% 8%;
+    --foreground: 140 20% 95%;
+
+    --card: 160 25% 12%;
+    --card-foreground: 140 20% 95%;
+
+    --popover: 160 25% 12%;
+    --popover-foreground: 140 20% 95%;
+
+    --primary: 158 64% 45%;
+    --primary-foreground: 160 30% 8%;
+
+    --secondary: 45 93% 55%;
+    --secondary-foreground: 160 30% 8%;
+
+    --muted: 160 20% 18%;
+    --muted-foreground: 140 15% 65%;
+
+    --accent: 200 80% 55%;
+    --accent-foreground: 160 30% 8%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 160 20% 20%;
+    --input: 160 20% 20%;
+    --ring: 158 64% 45%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+}
+
+@layer components {
+  .portal-gradient-bg {
+    background: linear-gradient(135deg, hsl(140 25% 96%) 0%, hsl(158 30% 92%) 50%, hsl(200 40% 94%) 100%);
+  }
+
+  .stats-card {
+    @apply transition-all duration-300;
+  }
+
+  .stats-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .menu-item-active {
+    @apply bg-primary text-primary-foreground font-semibold;
+  }
+
+  .menu-item {
+    @apply bg-muted text-muted-foreground hover:bg-muted/80 transition-colors;
+  }
+
+  .portal-card {
+    @apply bg-card rounded-xl shadow-lg border-2 border-transparent transition-all duration-300 cursor-pointer;
+  }
+
+  .portal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .portal-card-active {
+    @apply border-primary shadow-xl;
+    box-shadow: 0 8px 25px -8px hsl(var(--primary) / 0.4);
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all bg-background;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-all active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-all active:scale-[0.98];
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-all active:scale-[0.98];
+  }
+
+  .toast {
+    @apply fixed top-5 right-5 px-6 py-4 rounded-xl shadow-xl z-[1000];
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .toast-success {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .toast-error {
+    @apply bg-destructive text-destructive-foreground;
+  }
+
+  .toast-info {
+    @apply bg-accent text-accent-foreground;
+  }
+
+  .loading-spinner {
+    @apply w-6 h-6 border-3 border-muted border-t-primary rounded-full animate-spin;
+  }
+
+  .section-card {
+    @apply bg-card rounded-xl shadow-lg p-6 mb-6;
+  }
+}
